@@ -1,0 +1,29 @@
+ul.constlist li
+{
+    float: left;
+    height: 100px;
+    list-style: none;
+    width: 200px;
+    text-align: center;
+    margin: 5px;
+    border-radius: 8px;
+    background-color: #00C853;
+}
+div.constimg
+{
+    width: 50px;
+    height: 56px;
+    margin: 3px auto;
+}
+
+div.constimg img
+{
+    margin:3px;
+    height: 50px;
+}
+
+div.consttxt
+{
+    color: black;
+    padding-top: 10px;
+}
