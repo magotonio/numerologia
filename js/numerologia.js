@@ -4,7 +4,7 @@ function _reset() {
 }
 //Coloca en una mesa una baraja y sigue estas instrucciones.
 $(function() {
-  var ver = "0.1";
+  var ver = "0.2";
   var queryStringFn = function(query) {
     var urlParams;
     var match,
@@ -71,6 +71,15 @@ $(function() {
     dataObj.arr0.splice(dataObj.i0, 0, sampleConU[0]);
     dataObj.arr1.splice(dataObj.i1, 0, sampleConU[1]);
     dataObj.arr2.splice(dataObj.i2, 0, sampleConU[2]);
+    dataObj.i0 = dataObj.i0 === 5 ? 0 : dataObj.i0 + 1;
+    dataObj.i1 = dataObj.i1 === 5 ? 0 : dataObj.i1 + 1;
+    dataObj.i2 = dataObj.i2 === 5 ? 0 : dataObj.i2 + 1;
+    dataObj.arrPth0 = _.sample(arrPath, 6);
+    arrPath = _.difference(arrPath, dataObj.arrPth0);
+    dataObj.arrPth1 = _.sample(arrPath, 6);
+    arrPath = _.difference(arrPath, dataObj.arrPth1);
+    dataObj.arrPth2 = _.sample(arrPath, 6);
+    arrPath = _.difference(arrPath, dataObj.arrPth2);
     setDataObj();
   }
   console.debug(dataObj);
@@ -96,9 +105,38 @@ $(function() {
   }
   $("header").show();
 
+  var tmplConst = _.template(
+    '<li data-i="<%=i%>" ><div class="constimg text-center"><img src="img/path<%=path%>.png"></div><div class="consttxt"><%=conste%></div></li>'
+  );
+
   // Página 0
   if (!qsObj.pag) {
+    for (i = 0; i < 6; i++) {
+      $("#constlist0").append(
+        tmplConst({ path: dataObj.arrPth0[i], conste: dataObj.arr0[i], i: i })
+      );
+    }
     $("#templ0").show();
+  }
+
+  // Página 1
+  if (qsObj.pag === "1") {
+    for (i = 0; i < 6; i++) {
+      $("#constlist1").append(
+        tmplConst({ path: dataObj.arrPth1[i], conste: dataObj.arr1[i], i: i })
+      );
+    }
+    $("#templ1").show();
+  }
+
+  // Página 2
+  if (qsObj.pag === "2") {
+    for (i = 0; i < 6; i++) {
+      $("#constlist2").append(
+        tmplConst({ path: dataObj.arrPth2[i], conste: dataObj.arr2[i], i: i })
+      );
+    }
+    $("#templ2").show();
   }
   // <<<< * * * * * * * * * * * * TEMPLATES
 });
