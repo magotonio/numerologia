@@ -2,6 +2,7 @@
 <html lang="es">
   <title>Numerolog&iacute;a con Baraja Francesa</title>
   <head>
+      <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="js/bootstrap-4.0.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/glowworm.css">
@@ -9,15 +10,15 @@
   </head>
   <body>
       
-      <header >
+      <header class="hidden">
           <div class="container">
-            <h1 >Numerología con Baraja Francesa</h1>
+            <h1 id="titulo">Numerología con Baraja Francesa</h1>
             <p class="lead">Descubre tu número interior. Basado en los escritos de Ramon Llull.</p>
-            <a href="javascript:;">¿Tienes baraja española? Haz clic aquí.</a>
+            <a href="javascript:;" id="barajaesp" class="hidden">¿Tienes baraja española? Haz clic aquí.</a>
           </div>
         </header>
       <main class="container">
-          <div class="row">
+          <div class="row hidden" id="templ0">
     
             <div class="col-sm-12">
     
@@ -42,7 +43,7 @@
                   <li ><div class="constimg text-center"><img src="img/path01.png"></div><div class="consttxt">Canes Venatici</div></li>
                   <li ><div class="constimg text-center"><img src="img/path02.png"></div><div class="consttxt">Dorado</div></li>
                   <li ><div class="constimg text-center"><img src="img/path03.png"></div><div class="consttxt">Corona Borealis</div></li>
-                  <li ><div class="constimg text-center"><img src="img/path04.png"></div><div class="consttxt">Cancer</div></li>
+                  <li ><div class="constimg text-center"><img src="img/path04.png"></div><div class="consttxt">Aquarius</div></li>
                   <li ><div class="constimg text-center"><img src="img/path05.png"></div><div class="consttxt">Leo</div></li>
                 </ul>
               </div>
@@ -54,6 +55,7 @@
     <script src="js/jquery-3.3.1.min.js" ></script>
     <script src="js/popper-1.12.9.min.js" ></script>
     <script src="js/bootstrap-4.0.0-dist/js/bootstrap.min.js" ></script>
+    <script src="js/underscore-1.8.3.min.js"></script>
     <script src="js/numerologia.js" ></script>
   </body>
 </html>

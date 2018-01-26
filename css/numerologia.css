@@ -8,6 +8,7 @@ ul.constlist li
     margin: 5px;
     border-radius: 8px;
     background-color: #00C853;
+    cursor: pointer;
 }
 div.constimg
 {
@@ -26,4 +27,9 @@ div.consttxt
 {
     color: black;
     padding-top: 10px;
+}
+
+.hidden
+{
+    display:none;
 }
