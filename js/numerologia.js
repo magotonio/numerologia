@@ -33,6 +33,23 @@ $(function() {
   };
 
   // DATOS * * * * * * * * * * * * >>>>
+  var arrNumeros = [];
+  arrNumeros[0]="El número 0 simboliza el elemento femenino,el caos,el océano.";
+  arrNumeros[1]="El número 1 simboliza el liderazgo puro, la energía el individualismo y el egoismo material.";
+  arrNumeros[2]="El número 2 simboliza la dualidad, la pareje que puede ver los dos lados de cualquier situación y de la vida.";
+  arrNumeros[3]="El número 3 simboliza el pasado, el presente y el futuro.";
+  arrNumeros[4]="El número 4 simboliza la estabilidad, el orden, la ley y la estabilidad.";
+  arrNumeros[5]="El número 5 simboliza la libertad, la vitalidad, la aventura , la polémica y la controversia.";
+  arrNumeros[6]="El número 6 simboliza la justicia y el orden.";
+  arrNumeros[7]="El número 7 simboliza la seguridad y la protección.";
+  arrNumeros[8]="El número 8 simboliza el poder.";
+  arrNumeros[9]="El número 9 simboliza el misticismo.";
+  arrNumeros[10]="El número 10 simboliza el cambio inevitable que termina con los ciclos y que inicia otros nuevos para permitirle evolucionar al ser humano.";
+  arrNumeros[11]="El número 11 simboliza el idealismo, la energía, determinació, fuerza, la intuación y muchas contradicciones.";
+  arrNumeros[12]="El número 12 simboliza el número armónico para el trabajo en grupo.";
+  arrNumeros[13]="El número 13 simboliza el paso definitivo de cruzar la puerta que conduce hacia una nueva existencia, una nueva vida.";
+  arrNumeros[14]="El número 14 simboliza el servicio, porque Jacob sirvió a su tío Labán durante catorce años.";
+  arrNumeros[15]="El número 15 simboliza la libertad de movimientos y se considera el número de la juventud.";
   var dataObj = localStorage.getItem("numerologia");
   var setDataObj = function() {
     localStorage.setItem("numerologia", JSON.stringify(dataObj));
