@@ -1,10 +1,10 @@
-//https://upload.wikimedia.org/wikipedia/commons/5/57/Anglosaxonrunes.svg
 function _reset() {
   localStorage.setItem("numerologia", "{}");
 }
 //Coloca en una mesa una baraja y sigue estas instrucciones.
 $(function() {
   var ver = "0.2";
+  var _contador=0;
   var queryStringFn = function(query) {
     var urlParams;
     var match,
@@ -28,7 +28,8 @@ $(function() {
     _.each(_.keys(qsObj), function(k) {
       strQs = strQs + (strQs === "" ? "" : "&") + k + "=" + qsObj[k];
     });
-    window.location.href = "index.html?" + strQs;
+    setDataObj();
+    window.location.href = window.location.pathname + "?" + strQs;
   };
 
   // DATOS * * * * * * * * * * * * >>>>
@@ -88,6 +89,23 @@ $(function() {
   // CLICKS * * * * * * * * * * * * >>>>
   $("#barajaesp").click(function() {
     qsObj.esp = true;
+    navigateQueryString();
+  });
+  $("#imgramon").click(function(){
+    if(++_contador===10){
+      _reset();
+      window.location.href=window.location.pathname;
+    }
+  });
+  $("ul.constlist").on("click", "li", function(){
+    var pag = qsObj.pag;
+    if(!pag){
+      pag="0";
+    }
+    if(parseInt($(this).attr("data-i"))!==dataObj["i" + pag]){
+      dataObj.err=true;
+    }
+    qsObj.pag = parseInt(pag) + 1;
     navigateQueryString();
   });
   // <<<< * * * * * * * * * * * * CLICKS
