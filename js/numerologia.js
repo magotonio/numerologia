@@ -20,7 +20,7 @@ $(function() {
       urlParams[decode(match[1])] = decode(match[2]);
       match = search.exec(query);
     }
-    return urlParams;
+    return urlParams ;
   };
   var qsObj = queryStringFn(window.location.search.substring(1));
   var navigateQueryString = function() {
