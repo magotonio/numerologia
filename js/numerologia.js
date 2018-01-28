@@ -56,7 +56,7 @@ $(function() {
   arrSSP[3] = "el 10 de Picas";
   arrSSP[4] = "el 6 de Corazones";
   arrSSP[5] = "el 2 de Tréboles";
-  arrSSP[6] = "el Jota de Picas";
+  arrSSP[6] = "la Jota de Picas";
   arrSSP[7] = "el 7 de Corazones";
   arrSSP[8] = "el 3 de Tréboles";
   arrSSP[9] = "la Reina de Picas";
