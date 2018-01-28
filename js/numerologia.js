@@ -2,7 +2,7 @@ function _reset() {
   localStorage.setItem("numerologia", "{}");
 }
 $(function() {
-  var ver = "0.2";
+  var ver = "0.3";
   var _contador=0;
   var queryStringFn = function(query) {
     var urlParams;
@@ -49,6 +49,32 @@ $(function() {
   arrNumeros[13]="El número 13 simboliza el paso definitivo de cruzar la puerta que conduce hacia una nueva existencia, una nueva vida.";
   arrNumeros[14]="El número 14 simboliza el servicio, porque Jacob sirvió a su tío Labán durante catorce años.";
   arrNumeros[15]="El número 15 simboliza la libertad de movimientos y se considera el número de la juventud.";
+  var arrSSP = [];
+  arrSSP[0] = "el 9 de Picas";
+  arrSSP[1] = "el 5 de Corazones";
+  arrSSP[2] = "el As de Tréboles";
+  arrSSP[3] = "el 10 de Picas";
+  arrSSP[4] = "el 6 de Corazones";
+  arrSSP[5] = "el 2 de Tréboles";
+  arrSSP[6] = "el Jota de Picas";
+  arrSSP[7] = "el 7 de Corazones";
+  arrSSP[8] = "el 3 de Tréboles";
+  arrSSP[9] = "la Reina de Picas";
+  arrSSP[10] = "el 8 de Corazones";
+  arrSSP[11] = "el 4 de Tréboles";
+  arrSSP[12] = "el Rey de Picas";
+  arrSSP[13] = "el 9 de Corazones";
+  arrSSP[14] = "el 5 de Tréboles";
+  arrSSP[15] = "el As de Diamantes";
+  arrSSP[16] = "el 10 de Corazones";
+  var arrPalos = "Picas|Corazones|Tréboles|Diamantes".split("|");
+  var arrIndices = "el As|el 2|el 3|el 4|el 5|el 6|el 7|el 8|el 9|el 10|la Jota|la Reina|el Rey".split("|");
+  var arrBaraja = [];
+  for(i=0;i<4;i++){
+    for(j=0;j<13;j++){
+      arrBaraja.push(arrIndices[j] + " de " + arrPalos[i]);
+    }
+  }
   var dataObj = localStorage.getItem("numerologia");
   var setDataObj = function() {
     localStorage.setItem("numerologia", JSON.stringify(dataObj));
@@ -97,6 +123,7 @@ $(function() {
     arrPath = _.difference(arrPath, dataObj.arrPth1);
     dataObj.arrPth2 = _.sample(arrPath, 6);
     arrPath = _.difference(arrPath, dataObj.arrPth2);
+    dataObj.cartasMalas = _.sample(arrBaraja, 32);
     setDataObj();
   }
   console.debug(dataObj);
@@ -127,6 +154,11 @@ $(function() {
   $("#linkIndex").click(function(){
     delete dataObj.err;
     qsObj={};
+    navigateQueryString();
+  });
+  $("#containernum div.alert").click(function(){
+    qsObj.num = $(this).text();
+    qsObj.pag = 4;
     navigateQueryString();
   });
   // <<<< * * * * * * * * * * * * CLICKS
@@ -186,6 +218,34 @@ $(function() {
     else{
       $("#templ3").show();
     }
+  }
+
+  // Página 4
+  if(qsObj.pag==="4"){
+    var num = parseInt(qsObj.num);
+    $("#spannum").text(num);
+    $("#parte0").text(arrNumeros[num]);
+    if(typeof(dataObj.num)==="undefined" || dataObj.num === num)
+    {
+      if(num===0){
+        $("#advertencia").text("Eres persona testaruda y respondes negativamente a todas las preguntas.").show();
+      }
+      if(num===15){
+        $("#advertencia").text("Eres persona positiva y respondes afirmativamente a todas las preguntas.").show();
+      }
+      $("#resp1").text(num%2!==0 ? "Vivirás muchos años y en la vejez serás una persona muy delgada y muy diminuta." : "Vivirás muchos años, pero en la vejez tendrás una enorme barriga.");
+      $("#resp2").text(Math.floor(num/2)%2!==0 ? "Para que todo vaya bien, deberás llevar una prenda de tu color favorito, el rojo." : "Evita ponerte prendas de ese color que te desagrada, que es el rojo.");
+      $("#resp4").text(Math.floor(num/4)%2!==0 ? "Dado que tu ánimo cambia rápidamente, un mago hará un juego de magia y lo disfrutarás en el momento." : "Dado que tu ánimo no cambia tan rápidamente, un mago te hará un juego de magia y lo estarás pensando por mucho tiempo.");
+      $("#resp8").text(Math.floor(num/8)%2!==0 ? "Así pues, dado que lo haces a menudo, no pienses tanto en la existencia humana." : "Así pues, dado que no lo haces, deberías pensar más en la existencia humana.");
+      $("#tucarta1").text(arrSSP[num]);
+      $("#tucarta2").text(arrSSP[num+1]);
+      $("#tuscartas").show();
+    }
+    window.setTimeout(function(){
+      dataObj.num=num;
+      setDataObj();
+    }, 60000);
+    $("#templ4").show();
   }
   // <<<< * * * * * * * * * * * * TEMPLATES
 });

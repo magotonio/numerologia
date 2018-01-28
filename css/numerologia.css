@@ -33,3 +33,7 @@ div.consttxt
 {
     display:none;
 }
+
+#containernum div.alert {
+  cursor:pointer;
+}
