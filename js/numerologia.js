@@ -1,7 +1,6 @@
 function _reset() {
   localStorage.setItem("numerologia", "{}");
 }
-//Coloca en una mesa una baraja y sigue estas instrucciones.
 $(function() {
   var ver = "0.2";
   var _contador=0;
@@ -125,6 +124,11 @@ $(function() {
     qsObj.pag = parseInt(pag) + 1;
     navigateQueryString();
   });
+  $("#linkIndex").click(function(){
+    delete dataObj.err;
+    qsObj={};
+    navigateQueryString();
+  });
   // <<<< * * * * * * * * * * * * CLICKS
 
   // TEMPLATES * * * * * * * * * * * * >>>>
@@ -172,6 +176,16 @@ $(function() {
       );
     }
     $("#templ2").show();
+  }
+
+  // Página 3
+  if (qsObj.pag === "3") {
+    if(dataObj.err){
+      $("#templ3f").show();
+    }
+    else{
+      $("#templ3").show();
+    }
   }
   // <<<< * * * * * * * * * * * * TEMPLATES
 });
