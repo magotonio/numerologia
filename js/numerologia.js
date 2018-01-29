@@ -244,7 +244,7 @@ $(function() {
     window.setTimeout(function(){
       dataObj.num=num;
       setDataObj();
-    }, 60000);
+    }, 20000);
     $("#templ4").show();
   }
   // <<<< * * * * * * * * * * * * TEMPLATES
