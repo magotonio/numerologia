@@ -274,12 +274,12 @@ window.app.load = function() {
       );
       $("#tucarta1").text(arrSSP[num]);
       $("#tucarta2").text(arrSSP[num + 1]);
+      window.setTimeout(function() {
+        dataObj.num = num;
+        setDataObj();
+      }, 20000);
       $("#tuscartas").show();
     }
-    window.setTimeout(function() {
-      dataObj.num = num;
-      setDataObj();
-    }, 20000);
     $("#templ4").show();
   }
   // <<<< * * * * * * * * * * * * TEMPLATES
