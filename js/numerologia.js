@@ -60,23 +60,46 @@ window.app.load = function() {
   arrNumeros[15] =
     "El número 15 simboliza la libertad de movimientos y se considera el número de la juventud.";
   var arrSSP = [];
-  arrSSP[0] = "el 9 de Picas";
-  arrSSP[1] = "el 5 de Corazones";
-  arrSSP[2] = "el As de Tréboles";
-  arrSSP[3] = "el 10 de Picas";
-  arrSSP[4] = "el 6 de Corazones";
-  arrSSP[5] = "el 2 de Tréboles";
-  arrSSP[6] = "la Jota de Picas";
-  arrSSP[7] = "el 7 de Corazones";
-  arrSSP[8] = "el 3 de Tréboles";
-  arrSSP[9] = "la Reina de Picas";
-  arrSSP[10] = "el 8 de Corazones";
-  arrSSP[11] = "el 4 de Tréboles";
-  arrSSP[12] = "el Rey de Picas";
-  arrSSP[13] = "el 9 de Corazones";
-  arrSSP[14] = "el 5 de Tréboles";
-  arrSSP[15] = "el As de Diamantes";
-  arrSSP[16] = "el 10 de Corazones";
+  if(qsObj.esp)
+  {
+    arrSSP[0]="el 7 de Oros";
+    arrSSP[1]="el 4 de Copas";
+    arrSSP[2]="el As de Espadas";
+    arrSSP[3]="la Sota de Oros";
+    arrSSP[4]="el 5 de Copas";
+    arrSSP[5]="el 2 de Espadas";
+    arrSSP[6]="el Caballo de Oros";
+    arrSSP[7]="el 6 de Copas";
+    arrSSP[8]="el 3 de Espadas";
+    arrSSP[9]="el Rey de Oros";
+    arrSSP[10]="el 7 de Copas";
+    arrSSP[11]="el 4 de Espadas";
+    arrSSP[12]="el As de Bastos";
+    arrSSP[13]="la Sota de Copas";
+    arrSSP[14]="el 5 de Espadas";
+    arrSSP[15]="el 2 de Bastos";
+    arrSSP[16]="el Caballo de Copas";
+  }
+  else
+  {
+    arrSSP[0] = "el 9 de Picas";
+    arrSSP[1] = "el 5 de Corazones";
+    arrSSP[2] = "el As de Tréboles";
+    arrSSP[3] = "el 10 de Picas";
+    arrSSP[4] = "el 6 de Corazones";
+    arrSSP[5] = "el 2 de Tréboles";
+    arrSSP[6] = "la Jota de Picas";
+    arrSSP[7] = "el 7 de Corazones";
+    arrSSP[8] = "el 3 de Tréboles";
+    arrSSP[9] = "la Reina de Picas";
+    arrSSP[10] = "el 8 de Corazones";
+    arrSSP[11] = "el 4 de Tréboles";
+    arrSSP[12] = "el Rey de Picas";
+    arrSSP[13] = "el 9 de Corazones";
+    arrSSP[14] = "el 5 de Tréboles";
+    arrSSP[15] = "el As de Diamantes";
+    arrSSP[16] = "el 10 de Corazones";
+  }
   var arrPalos = "Picas|Corazones|Tréboles|Diamantes".split("|");
   var arrIndices = "el As|el 2|el 3|el 4|el 5|el 6|el 7|el 8|el 9|el 10|la Jota|la Reina|el Rey".split(
     "|"
@@ -163,8 +186,9 @@ window.app.load = function() {
     qsObj.pag = parseInt(pag) + 1;
     navigateQueryString();
   });
-  $("#linkIndex").click(function() {
+  $("a.link-index").click(function() {
     delete dataObj.err;
+    delete dataObj.num;
     qsObj = {};
     navigateQueryString();
   });
