@@ -1,9 +1,9 @@
 function _reset() {
   localStorage.setItem("numerologia", "{}");
 }
-$(function() {
+window.app.load = function() {
   var ver = "0.3";
-  var _contador=0;
+  var _contador = 0;
   var queryStringFn = function(query) {
     var urlParams;
     var match,
@@ -33,22 +33,33 @@ $(function() {
 
   // DATOS * * * * * * * * * * * * >>>>
   var arrNumeros = [];
-  arrNumeros[0]="El número 0 simboliza el elemento femenino,el caos,el océano.";
-  arrNumeros[1]="El número 1 simboliza el liderazgo puro, la energía el individualismo y el egoismo material.";
-  arrNumeros[2]="El número 2 simboliza la dualidad, la pareje que puede ver los dos lados de cualquier situación y de la vida.";
-  arrNumeros[3]="El número 3 simboliza el pasado, el presente y el futuro.";
-  arrNumeros[4]="El número 4 simboliza la estabilidad, el orden, la ley y la estabilidad.";
-  arrNumeros[5]="El número 5 simboliza la libertad, la vitalidad, la aventura , la polémica y la controversia.";
-  arrNumeros[6]="El número 6 simboliza la justicia y el orden.";
-  arrNumeros[7]="El número 7 simboliza la seguridad y la protección.";
-  arrNumeros[8]="El número 8 simboliza el poder.";
-  arrNumeros[9]="El número 9 simboliza el misticismo.";
-  arrNumeros[10]="El número 10 simboliza el cambio inevitable que termina con los ciclos y que inicia otros nuevos para permitirle evolucionar al ser humano.";
-  arrNumeros[11]="El número 11 simboliza el idealismo, la energía, determinació, fuerza, la intuación y muchas contradicciones.";
-  arrNumeros[12]="El número 12 simboliza el número armónico para el trabajo en grupo.";
-  arrNumeros[13]="El número 13 simboliza el paso definitivo de cruzar la puerta que conduce hacia una nueva existencia, una nueva vida.";
-  arrNumeros[14]="El número 14 simboliza el servicio, porque Jacob sirvió a su tío Labán durante catorce años.";
-  arrNumeros[15]="El número 15 simboliza la libertad de movimientos y se considera el número de la juventud.";
+  arrNumeros[0] =
+    "El número 0 simboliza el elemento femenino,el caos,el océano.";
+  arrNumeros[1] =
+    "El número 1 simboliza el liderazgo puro, la energía el individualismo y el egoismo material.";
+  arrNumeros[2] =
+    "El número 2 simboliza la dualidad, la pareje que puede ver los dos lados de cualquier situación y de la vida.";
+  arrNumeros[3] = "El número 3 simboliza el pasado, el presente y el futuro.";
+  arrNumeros[4] =
+    "El número 4 simboliza la estabilidad, el orden, la ley y la estabilidad.";
+  arrNumeros[5] =
+    "El número 5 simboliza la libertad, la vitalidad, la aventura , la polémica y la controversia.";
+  arrNumeros[6] = "El número 6 simboliza la justicia y el orden.";
+  arrNumeros[7] = "El número 7 simboliza la seguridad y la protección.";
+  arrNumeros[8] = "El número 8 simboliza el poder.";
+  arrNumeros[9] = "El número 9 simboliza el misticismo.";
+  arrNumeros[10] =
+    "El número 10 simboliza el cambio inevitable que termina con los ciclos y que inicia otros nuevos para permitirle evolucionar al ser humano.";
+  arrNumeros[11] =
+    "El número 11 simboliza el idealismo, la energía, determinació, fuerza, la intuación y muchas contradicciones.";
+  arrNumeros[12] =
+    "El número 12 simboliza el número armónico para el trabajo en grupo.";
+  arrNumeros[13] =
+    "El número 13 simboliza el paso definitivo de cruzar la puerta que conduce hacia una nueva existencia, una nueva vida.";
+  arrNumeros[14] =
+    "El número 14 simboliza el servicio, porque Jacob sirvió a su tío Labán durante catorce años.";
+  arrNumeros[15] =
+    "El número 15 simboliza la libertad de movimientos y se considera el número de la juventud.";
   var arrSSP = [];
   arrSSP[0] = "el 9 de Picas";
   arrSSP[1] = "el 5 de Corazones";
@@ -68,10 +79,12 @@ $(function() {
   arrSSP[15] = "el As de Diamantes";
   arrSSP[16] = "el 10 de Corazones";
   var arrPalos = "Picas|Corazones|Tréboles|Diamantes".split("|");
-  var arrIndices = "el As|el 2|el 3|el 4|el 5|el 6|el 7|el 8|el 9|el 10|la Jota|la Reina|el Rey".split("|");
+  var arrIndices = "el As|el 2|el 3|el 4|el 5|el 6|el 7|el 8|el 9|el 10|la Jota|la Reina|el Rey".split(
+    "|"
+  );
   var arrBaraja = [];
-  for(i=0;i<4;i++){
-    for(j=0;j<13;j++){
+  for (i = 0; i < 4; i++) {
+    for (j = 0; j < 13; j++) {
       arrBaraja.push(arrIndices[j] + " de " + arrPalos[i]);
     }
   }
@@ -134,29 +147,29 @@ $(function() {
     qsObj.esp = true;
     navigateQueryString();
   });
-  $("#imgramon").click(function(){
-    if(++_contador===10){
+  $("#imgramon").click(function() {
+    if (++_contador === 10) {
       _reset();
-      window.location.href=window.location.pathname;
+      window.location.href = window.location.pathname;
     }
   });
-  $("ul.constlist").on("click", "li", function(){
+  $("ul.constlist").on("click", "li", function() {
     var pag = qsObj.pag;
-    if(!pag){
-      pag="0";
+    if (!pag) {
+      pag = "0";
     }
-    if(parseInt($(this).attr("data-i"))!==dataObj["i" + pag]){
-      dataObj.err=true;
+    if (parseInt($(this).attr("data-i")) !== dataObj["i" + pag]) {
+      dataObj.err = true;
     }
     qsObj.pag = parseInt(pag) + 1;
     navigateQueryString();
   });
-  $("#linkIndex").click(function(){
+  $("#linkIndex").click(function() {
     delete dataObj.err;
-    qsObj={};
+    qsObj = {};
     navigateQueryString();
   });
-  $("#containernum div.alert").click(function(){
+  $("#containernum div.alert").click(function() {
     qsObj.num = $(this).text();
     qsObj.pag = 4;
     navigateQueryString();
@@ -212,40 +225,62 @@ $(function() {
 
   // Página 3
   if (qsObj.pag === "3") {
-    if(dataObj.err){
+    if (dataObj.err) {
       $("#templ3f").show();
-    }
-    else{
+    } else {
       $("#templ3").show();
     }
   }
 
   // Página 4
-  if(qsObj.pag==="4"){
+  if (qsObj.pag === "4") {
     var num = parseInt(qsObj.num);
     $("#spannum").text(num);
     $("#parte0").text(arrNumeros[num]);
-    if(typeof(dataObj.num)==="undefined" || dataObj.num === num)
-    {
-      if(num===0){
-        $("#advertencia").text("Eres persona testaruda y respondes negativamente a todas las preguntas.").show();
+    if (typeof dataObj.num === "undefined" || dataObj.num === num) {
+      if (num === 0) {
+        $("#advertencia")
+          .text(
+            "Eres persona testaruda y respondes negativamente a todas las preguntas."
+          )
+          .show();
       }
-      if(num===15){
-        $("#advertencia").text("Eres persona positiva y respondes afirmativamente a todas las preguntas.").show();
+      if (num === 15) {
+        $("#advertencia")
+          .text(
+            "Eres persona positiva y respondes afirmativamente a todas las preguntas."
+          )
+          .show();
       }
-      $("#resp1").text(num%2!==0 ? "Vivirás muchos años y en la vejez serás una persona muy delgada y muy diminuta." : "Vivirás muchos años, pero en la vejez tendrás una enorme barriga.");
-      $("#resp2").text(Math.floor(num/2)%2!==0 ? "Para que todo vaya bien, deberás llevar una prenda de tu color favorito, el rojo." : "Evita ponerte prendas de ese color que te desagrada, que es el rojo.");
-      $("#resp4").text(Math.floor(num/4)%2!==0 ? "Dado que tu ánimo cambia rápidamente, un mago hará un juego de magia y lo disfrutarás en el momento." : "Dado que tu ánimo no cambia tan rápidamente, un mago te hará un juego de magia y lo estarás pensando por mucho tiempo.");
-      $("#resp8").text(Math.floor(num/8)%2!==0 ? "Así pues, dado que lo haces a menudo, no pienses tanto en la existencia humana." : "Así pues, dado que no lo haces, deberías pensar más en la existencia humana.");
+      $("#resp1").text(
+        num % 2 !== 0
+          ? "Vivirás muchos años y en la vejez serás una persona muy delgada y muy diminuta."
+          : "Vivirás muchos años, pero en la vejez tendrás una enorme barriga."
+      );
+      $("#resp2").text(
+        Math.floor(num / 2) % 2 !== 0
+          ? "Para que todo vaya bien, deberás llevar una prenda de tu color favorito, el rojo."
+          : "Evita ponerte prendas de ese color que te desagrada, que es el rojo."
+      );
+      $("#resp4").text(
+        Math.floor(num / 4) % 2 !== 0
+          ? "Dado que tu ánimo cambia rápidamente, un mago hará un juego de magia y lo disfrutarás en el momento."
+          : "Dado que tu ánimo no cambia tan rápidamente, un mago te hará un juego de magia y lo estarás pensando por mucho tiempo."
+      );
+      $("#resp8").text(
+        Math.floor(num / 8) % 2 !== 0
+          ? "Así pues, dado que lo haces a menudo, no pienses tanto en la existencia humana."
+          : "Así pues, dado que no lo haces, deberías pensar más en la existencia humana."
+      );
       $("#tucarta1").text(arrSSP[num]);
-      $("#tucarta2").text(arrSSP[num+1]);
+      $("#tucarta2").text(arrSSP[num + 1]);
       $("#tuscartas").show();
     }
-    window.setTimeout(function(){
-      dataObj.num=num;
+    window.setTimeout(function() {
+      dataObj.num = num;
       setDataObj();
     }, 20000);
     $("#templ4").show();
   }
   // <<<< * * * * * * * * * * * * TEMPLATES
-});
+};
