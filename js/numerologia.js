@@ -2,7 +2,6 @@ function _reset() {
   localStorage.setItem("numerologia", "{}");
 }
 window.app.load = function() {
-  var ver = "0.3";
   var _contador = 0;
   var queryStringFn = function(query) {
     var urlParams;
@@ -97,11 +96,11 @@ window.app.load = function() {
   } else {
     dataObj = {};
   }
-  if (dataObj.ver !== ver) {
+  if (dataObj.ver !== _appVer) {
     dataObj = {};
   }
   if (!dataObj.ver) {
-    dataObj.ver = ver;
+    dataObj.ver = _appVer;
     var arrExentosConU = "Corona Australis|Hercules|Puppis|Auriga|Caelum|Columba|Crux|Horologium|Microscopium|Musca|Reticulum|Sculptor|Scutum|Telescopium|Triangulum|Triangulum Australe|Tucana|Vulpecula|Ursa Major|Ursa Minor".split(
       "|"
     );
