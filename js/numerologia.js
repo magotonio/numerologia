@@ -1,5 +1,12 @@
 function localStorageGetItem(){
-  return window.name ? window.name : localStorage.getItem("numerologia");
+  var value;
+  try{
+    value = localStorage.getItem("numerologia");
+  }
+  catch(e){
+    value = window.name;
+  }
+  return value;
 }
 function localStorageSetItem(value){
   try{
