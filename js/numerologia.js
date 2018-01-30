@@ -1,18 +1,16 @@
-function localStorageGetItem(){
+function localStorageGetItem() {
   var value;
-  try{
+  try {
     value = localStorage.getItem("numerologia");
-  }
-  catch(e){
+  } catch (e) {
     value = window.name;
   }
   return value;
 }
-function localStorageSetItem(value){
-  try{
+function localStorageSetItem(value) {
+  try {
     localStorage.setItem("numerologia", value);
-  }
-  catch(e){
+  } catch (e) {
     window.name = value;
   }
 }
@@ -78,28 +76,25 @@ window.app.load = function() {
   arrNumeros[15] =
     "El número 15 simboliza la libertad de movimientos y se considera el número de la juventud.";
   var arrSSP = [];
-  if(qsObj.esp)
-  {
-    arrSSP[0]="el 7 de Oros";
-    arrSSP[1]="el 4 de Copas";
-    arrSSP[2]="el As de Espadas";
-    arrSSP[3]="la Sota de Oros";
-    arrSSP[4]="el 5 de Copas";
-    arrSSP[5]="el 2 de Espadas";
-    arrSSP[6]="el Caballo de Oros";
-    arrSSP[7]="el 6 de Copas";
-    arrSSP[8]="el 3 de Espadas";
-    arrSSP[9]="el Rey de Oros";
-    arrSSP[10]="el 7 de Copas";
-    arrSSP[11]="el 4 de Espadas";
-    arrSSP[12]="el As de Bastos";
-    arrSSP[13]="la Sota de Copas";
-    arrSSP[14]="el 5 de Espadas";
-    arrSSP[15]="el 2 de Bastos";
-    arrSSP[16]="el Caballo de Copas";
-  }
-  else
-  {
+  if (qsObj.esp) {
+    arrSSP[0] = "el 7 de Oros";
+    arrSSP[1] = "el 4 de Copas";
+    arrSSP[2] = "el As de Espadas";
+    arrSSP[3] = "la Sota de Oros";
+    arrSSP[4] = "el 5 de Copas";
+    arrSSP[5] = "el 2 de Espadas";
+    arrSSP[6] = "el Caballo de Oros";
+    arrSSP[7] = "el 6 de Copas";
+    arrSSP[8] = "el 3 de Espadas";
+    arrSSP[9] = "el Rey de Oros";
+    arrSSP[10] = "el 7 de Copas";
+    arrSSP[11] = "el 4 de Espadas";
+    arrSSP[12] = "el As de Bastos";
+    arrSSP[13] = "la Sota de Copas";
+    arrSSP[14] = "el 5 de Espadas";
+    arrSSP[15] = "el 2 de Bastos";
+    arrSSP[16] = "el Caballo de Copas";
+  } else {
     arrSSP[0] = "el 9 de Picas";
     arrSSP[1] = "el 5 de Corazones";
     arrSSP[2] = "el As de Tréboles";
