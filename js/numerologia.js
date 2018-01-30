@@ -1,5 +1,16 @@
+function localStorageGetItem(){
+  return window.name ? window.name : localStorage.getItem("numerologia");
+}
+function localStorageSetItem(value){
+  try{
+    localStorage.setItem("numerologia", value);
+  }
+  catch(e){
+    window.name = value;
+  }
+}
 function _reset() {
-  localStorage.setItem("numerologia", "{}");
+  localStorageSetItem("{}");
 }
 window.app.load = function() {
   var _contador = 0;
@@ -110,9 +121,9 @@ window.app.load = function() {
       arrBaraja.push(arrIndices[j] + " de " + arrPalos[i]);
     }
   }
-  var dataObj = localStorage.getItem("numerologia");
+  var dataObj = localStorageGetItem();
   var setDataObj = function() {
-    localStorage.setItem("numerologia", JSON.stringify(dataObj));
+    localStorageSetItem(JSON.stringify(dataObj));
   };
   if (dataObj) {
     dataObj = JSON.parse(dataObj);
