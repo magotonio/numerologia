@@ -123,6 +123,18 @@ window.app.load = function() {
       arrBaraja.push(arrIndices[j] + " de " + arrPalos[i]);
     }
   }
+
+  var arrPalosEsp = "Oros|Copas|Espadas|Bastos".split("|");
+  var arrIndicesEsp = "el As|el 2|el 3|el 4|el 5|el 6|el 7|la Sota|el Caballo|el Rey".split(
+    "|"
+  );
+  var arrBarajaEsp = [];
+  for (i = 0; i < 4; i++) {
+    for (j = 0; j < 10; j++) {
+      arrBarajaEsp.push(arrIndicesEsp[j] + " de " + arrPalosEsp[i]);
+    }
+  }
+
   var dataObj = localStorageGetItem();
   var setDataObj = function() {
     localStorageSetItem(JSON.stringify(dataObj));
@@ -172,6 +184,7 @@ window.app.load = function() {
     dataObj.arrPth2 = _.sample(arrPath, 6);
     arrPath = _.difference(arrPath, dataObj.arrPth2);
     dataObj.cartasMalas = _.sample(arrBaraja, 32);
+    dataObj.cartasMalasEsp = _.sample(arrBarajaEsp, 32);
     setDataObj();
   }
   console.debug(dataObj);
@@ -314,6 +327,15 @@ window.app.load = function() {
         dataObj.num = num;
         setDataObj();
       }, 20000);
+      $("#tuscartas").show();
+    } else {
+      if (qsObj.esp) {
+        $("#tucarta1").text(dataObj.cartasMalasEsp[num * 2]);
+        $("#tucarta2").text(dataObj.cartasMalasEsp[num * 2 + 1]);
+      } else {
+        $("#tucarta1").text(dataObj.cartasMalas[num * 2]);
+        $("#tucarta2").text(dataObj.cartasMalas[num * 2 + 1]);
+      }
       $("#tuscartas").show();
     }
     $("#templ4").show();
