@@ -219,6 +219,9 @@ window.app.load = function() {
     navigateQueryString();
   });
   $("#containernum div.alert").click(function() {
+    if (typeof dataObj.num === "undefined" || isNaN(parseInt(null))) {
+      qsObj.num = $(this).text();
+    }
     qsObj.pag = 4;
     navigateQueryString();
   });
@@ -325,7 +328,7 @@ window.app.load = function() {
       window.setTimeout(function() {
         dataObj.num = num;
         setDataObj();
-      }, 10000);
+      }, 20000);
       $("#tuscartas").show();
     } else {
       if (qsObj.esp) {
