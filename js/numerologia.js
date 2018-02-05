@@ -219,7 +219,6 @@ window.app.load = function() {
     navigateQueryString();
   });
   $("#containernum div.alert").click(function() {
-    qsObj.num = $(this).text();
     qsObj.pag = 4;
     navigateQueryString();
   });
@@ -326,7 +325,7 @@ window.app.load = function() {
       window.setTimeout(function() {
         dataObj.num = num;
         setDataObj();
-      }, 20000);
+      }, 10000);
       $("#tuscartas").show();
     } else {
       if (qsObj.esp) {
