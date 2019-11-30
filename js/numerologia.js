@@ -308,8 +308,8 @@ window.app.load = function() {
       );
       $("#resp2").text(
         Math.floor(num / 2) % 2 !== 0
-          ? "Para que todo vaya bien, deberás llevar una prenda de tu color favorito, el rojo."
-          : "Evita ponerte prendas de ese color que te desagrada, que es el rojo."
+          ? "Para que todo vaya bien, deberás llevar una prenda de tu color favorito, el verde."
+          : "Evita ponerte prendas de ese color que te desagrada, que es el verde."
       );
       $("#resp4").text(
         Math.floor(num / 4) % 2 !== 0
