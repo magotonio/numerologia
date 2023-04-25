@@ -53,7 +53,7 @@ window.app.load = function() {
   arrNumeros[1] =
     "El número 1 simboliza el liderazgo puro, la energía el individualismo y el egoismo material.";
   arrNumeros[2] =
-    "El número 2 simboliza la dualidad, la pareje que puede ver los dos lados de cualquier situación y de la vida.";
+    "El número 2 simboliza la dualidad, la pareja que puede ver los dos lados de cualquier situación y de la vida.";
   arrNumeros[3] = "El número 3 simboliza el pasado, el presente y el futuro.";
   arrNumeros[4] =
     "El número 4 simboliza la estabilidad, el orden, la ley y la estabilidad.";
@@ -303,23 +303,23 @@ window.app.load = function() {
       }
       $("#resp1").text(
         num % 2 !== 0
-          ? "Vivirás muchos años y en la vejez serás una persona muy delgada y muy diminuta."
-          : "Vivirás muchos años, pero en la vejez tendrás una enorme barriga."
+          ? "La luna Ío está visible en tu vida, tendrás mucha fortuna en el futuro."
+          : "La luna Ío está oculta en tu vida, tendrás mucha suerte muy pronto."
       );
       $("#resp2").text(
         Math.floor(num / 2) % 2 !== 0
-          ? "Para que todo vaya bien, deberás llevar una prenda de tu color favorito, el verde."
-          : "Evita ponerte prendas de ese color que te desagrada, que es el verde."
+          ? "La luna Europa te acompaña, ten laboriosidad y te irá bien."
+          : "No hay luna Europa en tu vida, ten cautela y guárdate de los malos amigos."
       );
       $("#resp4").text(
         Math.floor(num / 4) % 2 !== 0
-          ? "Dado que tu ánimo cambia rápidamente, un mago hará un juego de magia y lo disfrutarás en el momento."
-          : "Dado que tu ánimo no cambia tan rápidamente, un mago te hará un juego de magia y lo estarás pensando por mucho tiempo."
+          ? "La luna Ganímedes te sonríe y está presente, un mago te sorprenderá con un truco de magia"
+          : "No hay luna Ganímedes en tu aúrea, déjate llevar por la magia de este mago"
       );
       $("#resp8").text(
         Math.floor(num / 8) % 2 !== 0
-          ? "Así pues, dado que lo haces a menudo, no pienses tanto en la existencia humana."
-          : "Así pues, dado que no lo haces, deberías pensar más en la existencia humana."
+          ? "Aunque piensas que has sido tú, la luna Calisto te eligió a ti."
+          : "Aunque piensas que has sido tú, la luna Calisto no te eligió a ti."
       );
       $("#tucarta1").text(arrSSP[num]);
       $("#tucarta2").text(arrSSP[num + 1]);
